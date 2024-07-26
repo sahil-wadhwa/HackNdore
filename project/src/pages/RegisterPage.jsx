@@ -27,13 +27,13 @@ const RegisterPage = () => {
     if (isChecked) {
       const { name, email, password, reEnterPassword } = user;
       if (name && email && password && password === reEnterPassword) {
-        axios.post("https://localhost:9002/register", user)
+        axios.post("http://localhost:9002/register", user)
           .then((res) => {
             alert(res.data.message);
             navigate("/login");
           })
           .catch((error) => {
-            alert("An error occurred. Please try again.");
+            alert(error.message);
           });
       } else {
         alert("Invalid input from your end");
