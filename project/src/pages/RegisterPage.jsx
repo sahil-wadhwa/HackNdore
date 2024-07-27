@@ -42,7 +42,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className= " flex flex-col register items-center justify-center w-screen h-screen ">
+    <div className= "  flex flex-col register items-center justify-center w-screen h-screen ">
       <h1 className="mb-2 font-serif text-[7vh] uppercase">Register</h1>
       <div className = " flex flex-col gap-5 justify-center items-center w-[27vw] h-[50vh]">
        <input className="rounded-lg text-center border-2 h-[7vh] w-[20vw]"
