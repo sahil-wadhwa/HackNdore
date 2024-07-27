@@ -1,6 +1,6 @@
 function WorkGrid(){
     return (
-        <div className="w-[100vw] h-screen flex flex-row mt-[10vh] gap-[1vw] p-3">
+        <div className="w-[100vw] h-screen flex flex-row mt-[18vh] gap-[1vw] p-3">
             <div className="flex flex-col gap-[1vw]">
                 <div className="flex flex-row gap-[1vw]">
                     <div className="w-[33vw] h-[33vh] bg-gray-400">Reports</div>

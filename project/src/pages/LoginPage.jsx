@@ -18,10 +18,11 @@ const LoginPage = ({ setLoginUser }) => {
         .then((res) => {
           alert(res.data.message);
           setLoginUser(res.data.user);
+          localStorage.setItem('token', res.data.token);
           navigate('/');
         })
         .catch((error) => {
-          alert("An error occurred. Please try again.");
+          alert(error.response?.data?.message || "An error occurred. Please try again.");
         });
     } else {
       alert("Please agree to the terms and conditions.");
@@ -30,7 +31,6 @@ const LoginPage = ({ setLoginUser }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setUser((prevState) => ({
       ...prevState,
       [name]: value,
@@ -76,7 +76,6 @@ const LoginPage = ({ setLoginUser }) => {
       <div className="button w-[8vw] h-[5vh] bg-blue-600 rounded-lg flex items-center justify-center font-extrabold text-white m-4 cursor-pointer" onClick={() => navigate("/register")}>Register</div>
     </div>
       </div>
-     
   );
 };
 
