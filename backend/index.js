@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import{ masterModel as Master} from "./models/masterModel";
 
 const app = express();
 app.use(express.json());
@@ -26,6 +27,7 @@ const userSchema = new mongoose.Schema({
   email: String,
   password: String
 });
+
 
 const User = mongoose.model("User", userSchema);
 
@@ -94,6 +96,15 @@ app.get("/protected", verifyToken, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
     res.json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+app.get("/master", verifyToken, async (req, res) => {
+  try {
+    const master = await Master.findById(req._id).exec();
+    res.json(master);
   } catch (error) {
     res.status(500).json({ message: "Server error" });
   }

@@ -39,4 +39,4 @@ const masterModel= mongoose.Schema({
 
 });
 
-module.exports=mongoose.model('masterModel',masterModel);
+module.exports=mongoose.model("masterModel",masterModel);
