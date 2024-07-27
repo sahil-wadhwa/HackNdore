@@ -4,8 +4,11 @@ import Navbar from "../components/Navbar";
 import Video from "../components/Video";
 import WorkGrid from "../components/WorkGrid";
 import LinkSection from "../components/LinksSection";
+import {toast,ToastContainer} from 'react-toastify';
+
 
 function HomePage({ setLoginUser }) {
+  success();
   return (
     <div className="App flex flex-col overflow-hidden">
     <div className ='fixed top-0 z-10'><Navbar setLoginUser={setLoginUser}/></div>

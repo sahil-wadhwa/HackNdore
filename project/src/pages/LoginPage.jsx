@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
+
 const LoginPage = ({ setLoginUser }) => {
   const navigate = useNavigate();
 
@@ -16,10 +17,11 @@ const LoginPage = ({ setLoginUser }) => {
     if (isChecked) {
       axios.post("http://localhost:9002/login", user)
         .then((res) => {
-          alert(res.data.message);
+          console.log("HI")
           setLoginUser(res.data.user);
           localStorage.setItem('token', res.data.token);
           navigate('/');
+
         })
         .catch((error) => {
           alert(error.response?.data?.message || "An error occurred. Please try again.");

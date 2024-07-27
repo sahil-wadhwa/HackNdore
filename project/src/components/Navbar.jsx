@@ -2,6 +2,8 @@ import { NavLink , useNavigate } from "react-router-dom";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useState } from "react";
 import Logo from "./Logo";
+import {toast,ToastContainer} from 'react-toastify';
+
 
 function Navbar() {
   const [hide, setHide] = useState("hidden");
@@ -9,13 +11,17 @@ function Navbar() {
   const tenders = ["Current Tenders", "Generate Tenders", "Upcoming Tenders"];
   const transport = ["Buses", "Road", "City Vans"];
   const water = ["Leakages", "Supply", "Requests"];
+  
   const [category, setCategory] = useState(healthcare);
+
   const [link,setLink]=useState("/");
 
   const navigate = useNavigate();
+  const notify=()=>toast("Logged Out.")
 
 
   const handleLogout = () => {
+    notify();
     localStorage.removeItem('token');
     navigate('/login');
   };
@@ -24,12 +30,12 @@ function Navbar() {
 
   return (
     <div className="w-screen h-[10vh] hover:h-[40vh] duration-500">
-      <div className="flex flex-col gap-4 bg-black pr-10 h-full text-white overflow-hidden items-end justify-start">
+      <div className="flex flex-col gap-4 bg-white pr-10 h-full text-black overflow-hidden items-end justify-start">
         <div className="flex flex-row h-full w-screen justify-between">
-          <div className="ml-[5vw] mt-[4vh]">
-            <Logo />
+          <div className="ml-[7vw] mt-[2vh] scale-[3]">
+            <Logo/>
           </div>
-          <div className="flex flex-row gap-10 text-white place-items-baseline pt-3">
+          <div className="flex flex-row gap-10 text-black place-items-baseline pt-3">
             <div
               onMouseEnter={() => {
                 setHide("flex");
@@ -83,7 +89,7 @@ function Navbar() {
               </div>
             </div>
             <div onClick={handleLogout}
- className="w-[5vw] h-[5vh] bg-white text-center flex items-center justify-center rounded-md text-black hover:bg-black hover:text-white duration-500 cursor-pointer">
+ className="w-[5.5vw] h-[5vh] bg-white text-center flex items-center justify-center rounded-md text-black hover:bg-black hover:text-white duration-500 cursor-pointer">
               Log Out
             </div>
           </div>
@@ -92,7 +98,7 @@ function Navbar() {
         {category.map((name) => (
           <NavLink to={`${link}/${name}`}
             key={name}
-            className="text-[3vh] text-white  font-extrabold cursor-pointer"
+            className="text-[3vh] text-black  font-extrabold cursor-pointer"
           >
             {name}
           </NavLink>

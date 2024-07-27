@@ -49,10 +49,10 @@ function App() {
       <Route path="/healthcare/hospitals" element={<HospitalSection />} />
       <Route path="/healthcare/pharmacies" element={<PharmacySection />} />
       <Route path="/healthcare/warehouse" element={<WarehouseSection />} />
-      <Route path="/tenders/currenttenders" element={<CurrentTSection />} />
-      <Route path="/tenders/generate%20tenders" element={<GenerateTSection />} />
-      <Route path="/tenders/upcoming%20tenders" element={<UpcomingTSection />} />
-      <Route path="/transport/city%20vans" element={<VansSection />} />
+      <Route path="/tenders/current tenders" element={<CurrentTSection />} />
+      <Route path="/tenders/generate tenders" element={<GenerateTSection />} />
+      <Route path="/tenders/upcoming tenders" element={<UpcomingTSection />} />
+      <Route path="/transport/city vans" element={<VansSection />} />
       <Route path="/transport/road" element={<RoadSection />} />
       <Route path="/transport/buses" element={<BusesSection />} />
       <Route path="/water/leakages" element={<LeakageSection />} />
