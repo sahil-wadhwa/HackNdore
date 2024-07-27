@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink , useNavigate } from "react-router-dom";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useState } from "react";
 import Logo from "./Logo";
@@ -11,6 +11,16 @@ function Navbar() {
   const water = ["Leakages", "Supply", "Requests"];
   const [category, setCategory] = useState(healthcare);
   const [link,setLink]=useState("/");
+
+  const navigate = useNavigate();
+
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
+
+  
 
   return (
     <div className="w-screen h-[10vh] hover:h-[40vh] duration-500">
@@ -72,7 +82,8 @@ function Navbar() {
                 <MdKeyboardArrowDown size={20} />
               </div>
             </div>
-            <div className="w-[5vw] h-[5vh] bg-white text-center flex items-center justify-center rounded-md text-black hover:bg-black hover:text-white duration-500 cursor-pointer">
+            <div onClick={handleLogout}
+ className="w-[5vw] h-[5vh] bg-white text-center flex items-center justify-center rounded-md text-black hover:bg-black hover:text-white duration-500 cursor-pointer">
               Log Out
             </div>
           </div>
