@@ -19,6 +19,7 @@ import VansSection from './sections/Transport/VansSection';
 import BusesSection from './sections/Transport/BusesSection';
 import Data from './components/DataGrid';
 import ChartsOverviewDemo from './components/Charts';
+import InfiniteCarousel from './components/Carousel';
 
 function App() {
   const [user, setLoginUser] = useState(null);
@@ -58,7 +59,7 @@ function App() {
       <Route path="/water/requests" element={<RequestSection />} />
       <Route path="/water/supply" element={<SupplySection />} />
       <Route path="/data" element={<Data />} />
-      <Route path="/charts" element={<ChartsOverviewDemo />} />
+      <Route path="/charts" element={<InfiniteCarousel />} />
     </Routes>
   );
 }

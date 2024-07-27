@@ -3,7 +3,7 @@ import {easeIn, motion, transform} from 'framer-motion';
 
 function Footer(){
     return (
-        <div className="w-screen h-[5vh] bg-white flex flex-row self-end">
+        <div className="w-screen h-[5vh] bg-gray-600 flex flex-row self-end text-white">
             <div className="bg-orange-600 w-[7vw] h-full items-center justify-center text-[2vh] text-white">
                 What's New
             </div>

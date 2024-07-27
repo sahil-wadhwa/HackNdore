@@ -4,9 +4,9 @@ import {easeInOut, motion} from 'framer-motion'
        class Video extends React.Component {
        render(){
           return(
-             <div className="myVideo w-screen h-screen object-fill flex ">
-                 <div></div><video cl width={1920} height={1080*0.9} muted={true} className='object-fill z-[-1] absolute' controls={false} loop="true" autostart="true" autoPlay="true" src={require('../assets/indore.mp4')} />
-                  <motion.div  className='w-[20vw] h-[50vh] bg-black opacity-65 text-white gap-3 self-center flex flex-col overflow-hidden justify-self-end ml-[70vw] rounded-lg'>
+             <div className="myVideo w-screen h-screen object-fill flex flex-col items-center justify-center">
+                 <video width={1920} height={1080*0.9} muted={true} className='object-fill z-[-1] absolute' controls={false} loop="true" autostart="true" autoPlay="true" src={require('../assets/indore.mp4')} />
+                  <motion.div  className='w-[20vw] h-[50vh] bg-black opacity-65 text-white gap-3 flex flex-col  overflow-hidden ml-[70vw] rounded-lg'>
                     <motion.div animate={{y:[200,-1000]}} transition={{repeat:Infinity,duration:70,repeatType:"reverse"}}>
                       <div>1.Indore to host its first International Food Festival from August 10.</div>
                       <div>2.New smart traffic management system launched in Indore.</div>
