@@ -59,10 +59,6 @@ function App() {
       <Route path="/water/supply" element={<SupplySection />} />
       <Route path="/data" element={<Data />} />
       <Route path="/charts" element={<ChartsOverviewDemo />} />
-
-
-
-
     </Routes>
   );
 }
