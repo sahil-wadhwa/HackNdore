@@ -1,7 +1,7 @@
 function CurrentTSection(){
     return (
-        <div></div>
+      <div></div>
     )
 }
-
+  
 export default CurrentTSection;
