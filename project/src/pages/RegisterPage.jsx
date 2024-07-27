@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import "./register.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
@@ -16,7 +15,6 @@ const RegisterPage = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setUser((prevState) => ({
       ...prevState,
       [name]: value,
@@ -33,7 +31,7 @@ const RegisterPage = () => {
             navigate("/login");
           })
           .catch((error) => {
-            alert(error.message);
+            alert(error.response?.data?.message || "An error occurred. Please try again.");
           });
       } else {
         alert("Invalid input from your end");

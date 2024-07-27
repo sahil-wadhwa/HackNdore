@@ -18,10 +18,11 @@ const LoginPage = ({ setLoginUser }) => {
         .then((res) => {
           alert(res.data.message);
           setLoginUser(res.data.user);
+          localStorage.setItem('token', res.data.token);
           navigate('/');
         })
         .catch((error) => {
-          alert("An error occurred. Please try again.");
+          alert(error.response?.data?.message || "An error occurred. Please try again.");
         });
     } else {
       alert("Please agree to the terms and conditions.");
@@ -30,7 +31,6 @@ const LoginPage = ({ setLoginUser }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setUser((prevState) => ({
       ...prevState,
       [name]: value,
@@ -39,15 +39,17 @@ const LoginPage = ({ setLoginUser }) => {
 
   return (
     <div className="login w-screen h-screen flex flex-col justify-center items-center">
-      <h1 className="text-[5vh] uppercase font-extrabold">Login</h1>
-      <input className="border-2 w-[20vw] h-[7vh] m-4 text-center"
+      <img className="w-screen h-screen absolute z-[-1]" src={require('../assets/bg.jpg')} alt="bg"></img>
+      <div className="w-[30vw] h-[70vh] flex flex-col justify-center items-center  rounded-lg self-end mr-[10vw]">
+      <h1 className="text-[5vh] uppercase font-serif">Login</h1>
+      <input className="border-2 w-[20vw] h-[7vh] m-4 text-center rounded-lg"
         type="text"
         name="email"
         value={user.email}
         placeholder="Enter your email"
         onChange={handleChange}
       ></input>
-      <input className="border-2 w-[20vw] h-[7vh] m-4 text-center"
+      <input className="border-2 w-[20vw] h-[7vh] m-4 text-center rounded-lg"
         type="password"
         name="password"
         value={user.password}
@@ -62,17 +64,18 @@ const LoginPage = ({ setLoginUser }) => {
             checked={isChecked}
             onChange={(e) => setIsChecked(e.target.checked)}
             />
-        <div className="w-[2vw]"></div>
-        <label htmlFor="checkbox ml-4">
+        <span className="w-[2vw]"></span>
+        <label htmlFor="checkbox">
           I agree to the <a href="https://www.w3schools.com">terms</a> and{" "}
           <a href="https://www.google.com">conditions</a>
         </label>
         </div>
       </div>
-      <div className="button w-[10vw] h-[7vh] bg-blue-600 rounded-lg flex items-center justify-center text-white m-4 cursor-pointer" onClick={login}>Login</div>
+      <div className="button w-[10vw] h-[7vh] bg-blue-600 rounded-lg flex items-center justify-center font-extrabold text-white m-4 cursor-pointer" onClick={login}>Login</div>
       <div className="uppercase font-extrabold">or</div>
-      <div className="button w-[8vw] h-[5vh] bg-blue-600 rounded-lg flex items-center justify-center text-white m-4 cursor-pointer" onClick={() => navigate("/register")}>Register</div>
+      <div className="button w-[8vw] h-[5vh] bg-blue-600 rounded-lg flex items-center justify-center font-extrabold text-white m-4 cursor-pointer" onClick={() => navigate("/register")}>Register</div>
     </div>
+      </div>
   );
 };
 
