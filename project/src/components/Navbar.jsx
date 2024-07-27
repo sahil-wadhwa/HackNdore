@@ -14,7 +14,7 @@ function Navbar() {
 
   return (
     <div className="w-screen h-[10vh] hover:h-[40vh] duration-500">
-      <div className="flex flex-col gap-7 bg-black pb-4 pr-10 h-full text-white overflow-hidden items-end justify-start">
+      <div className="flex flex-col gap-4 bg-black pr-10 h-full text-white overflow-hidden items-end justify-start">
         <div className="flex flex-row h-full w-screen justify-between">
           <div className="ml-[5vw] mt-[4vh]">
             <Logo />
@@ -77,14 +77,17 @@ function Navbar() {
             </div>
           </div>
         </div>
+        <div className="h-full flex flex-col gap-3">
         {category.map((name) => (
           <NavLink to={`${link}/${name}`}
             key={name}
-            className="text-[4vh] text-white  font-extrabold cursor-pointer"
+            className="text-[3vh] text-white  font-extrabold cursor-pointer"
           >
             {name}
           </NavLink>
+        
         ))}
+        </div>
       </div>
       
       

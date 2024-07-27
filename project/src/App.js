@@ -21,14 +21,6 @@ import BusesSection from './sections/Transport/BusesSection';
 
 
 
-
-
-
-
-
-
-
-
 function App() {
   const [user, setLoginUser] = useState(null);
 
@@ -58,9 +50,9 @@ function App() {
       <Route path="/healthcare/pharmacies" element={<PharmacySection />} />
       <Route path="/healthcare/warehouse" element={<WarehouseSection />} />
       <Route path="/tenders/currenttenders" element={<CurrentTSection />} />
-      <Route path="/tenders/generatetenders" element={<GenerateTSection />} />
-      <Route path="/tenders/upcomingtenders" element={<UpcomingTSection />} />
-      <Route path="/transport/cityvans" element={<VansSection />} />
+      <Route path="/tenders/generate%20tenders" element={<GenerateTSection />} />
+      <Route path="/tenders/upcoming%20tenders" element={<UpcomingTSection />} />
+      <Route path="/transport/city%20vans" element={<VansSection />} />
       <Route path="/transport/road" element={<RoadSection />} />
       <Route path="/transport/buses" element={<BusesSection />} />
       <Route path="/water/leakages" element={<LeakageSection />} />
