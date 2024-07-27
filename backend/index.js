@@ -3,7 +3,6 @@ import cors from "cors";
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import{ masterModel as Master} from "./models/masterModel";
 
 const app = express();
 app.use(express.json());
@@ -28,8 +27,40 @@ const userSchema = new mongoose.Schema({
   password: String
 });
 
+const masterModel=new mongoose.Schema({
+  supply_name:{
+      type:String,
+  
+  },
+  department:{
+      type:String,
+  
+  },
+  batch_no:{
+      type:String,
+  
+  },
+  quantity:{
+      type: Number,
+  },
+  shelf_life:{
+      type: Number,
+ },
+  reorder_level:{
+      type: Number,
+  },
+  reorder_quanity:{
+      type:Number,
+  },
+  cost:{
+      type:Number,
+  }
+
+});
+
 
 const User = mongoose.model("User", userSchema);
+const Master= mongoose.model("masterModel",masterModel);
 
 const SECRET_KEY = "mZ8KcP3xR9yJ2vF6qL7tN4wX5bA1hG0sE";
 
@@ -101,15 +132,25 @@ app.get("/protected", verifyToken, async (req, res) => {
   }
 });
 
-app.get("/master", verifyToken, async (req, res) => {
-  try {
-    const master = await Master.findById(req._id).exec();
+// const getMaster = require('./routes/getMaster')
+// app.use('/api',getMaster);
+app.get('/master',async(req,res)=>{
+  try{
+    const master=await Master.find({supply_name}).exec();
     res.json(master);
-  } catch (error) {
+  }catch(e){
     res.status(500).json({ message: "Server error" });
   }
 });
 
+app.get('/mr',async(req,res)=>{
+  try{
+    const user=await User.find({}).exec();
+    res.json(user);
+  }catch(e){
+    res.status(500).json({ message: "Server error" });
+  }
+});
 app.listen(9002, () => {
   console.log("Server started at port 9002");
 });

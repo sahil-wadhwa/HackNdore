@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import axios from 'axios';
-
 import PharmacySection from './sections/Healthcare/PharmacySection';
 import WarehouseSection from './sections/Healthcare/WarehouseSection';
 import CurrentTSection from './sections/Tenders/CurrenTSection';
@@ -18,8 +17,8 @@ import LeakageSection from './sections/Water/LeakageSection';
 import RoadSection from './sections/Transport/RoadSection';
 import VansSection from './sections/Transport/VansSection';
 import BusesSection from './sections/Transport/BusesSection';
-
-
+import Data from './components/DataGrid';
+import ChartsOverviewDemo from './components/Charts';
 
 function App() {
   const [user, setLoginUser] = useState(null);
@@ -46,9 +45,9 @@ function App() {
       <Route exact path="/" element={user ? <HomePage setLoginUser={setLoginUser} /> : <LoginPage setLoginUser={setLoginUser} />} />
       <Route path="/login" element={<LoginPage setLoginUser={setLoginUser} />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/healthcare/hospitals" element={<HospitalSection />} />
-      <Route path="/healthcare/pharmacies" element={<PharmacySection />} />
-      <Route path="/healthcare/warehouse" element={<WarehouseSection />} />
+      <Route path="/supplies/agencies" element={<HospitalSection />} />
+      <Route path="/supplies/retailers" element={<PharmacySection />} />
+      <Route path="/supplies  /warehouses" element={<WarehouseSection />} />
       <Route path="/tenders/current tenders" element={<CurrentTSection />} />
       <Route path="/tenders/generate tenders" element={<GenerateTSection />} />
       <Route path="/tenders/upcoming tenders" element={<UpcomingTSection />} />
@@ -58,6 +57,9 @@ function App() {
       <Route path="/water/leakages" element={<LeakageSection />} />
       <Route path="/water/requests" element={<RequestSection />} />
       <Route path="/water/supply" element={<SupplySection />} />
+      <Route path="/data" element={<Data />} />
+      <Route path="/charts" element={<ChartsOverviewDemo />} />
+
 
 
 

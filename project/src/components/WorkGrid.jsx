@@ -1,12 +1,28 @@
+import { DataGrid } from "@mui/x-data-grid";
+import ChartsOverviewDemo from "./Charts";
+import Data from "./DataGrid";
+
 function WorkGrid(){
+    const sites=[];
     return (
         <div className="w-[100vw] h-screen flex flex-row mt-[10vh] gap-[1vw] p-3">
             <div className="flex flex-col gap-[1vw]">
                 <div className="flex flex-row gap-[1vw]">
-                    <div className="w-[33vw] h-[33vh] bg-gray-400 rounded-lg">Reports</div>
-                    <div className="w-[33vw] h-[33vh] bg-gray-400 rounded-lg">Analysis</div>
+                    <div className="w-[33vw] h-[33vh] bg-gray-400 rounded-lg">
+                        {sites.map((site)=>{
+                            return (
+                                <a href={site}>{site}</a>
+                            )
+                        })}
+                    </div>
+                    <div className="w-[33vw] h-[33vh] rounded-lg flex items-center justify-center hover:scale-[1.5] duration-500">
+                        Analysis Report
+                        <ChartsOverviewDemo></ChartsOverviewDemo>
+                    </div>
                 </div>
-                <div className="w-[67vw] h-[45vh] bg-gray-400 rounded-lg">Complaints</div>
+                <div className="w-[67vw] h-[45vh] rounded-lg">
+                    <Data/>
+                </div>
             </div>
             <div className="flex flex-col gap-[1vw]">
             <div className="w-[28vw] h-[60vh] bg-gray-400 rounded-lg">Notice Board</div>

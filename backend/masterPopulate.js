@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import modelMaster from './models/masterModel.js'; 
 
 const uri = "mongodb+srv://kundansingh023230:fIQmPe4wUaikjgbK@cluster0.d4okzyh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
@@ -10,6 +9,38 @@ mongoose
   })
   .then(() => {
     console.log("db connected");
+
+    const masterModel=new mongoose.Schema({
+      supply_name:{
+          type:String,
+      
+      },
+      department:{
+          type:String,
+      
+      },
+      batch_no:{
+          type:String,
+      
+      },
+      quantity:{
+          type: Number,
+      },
+      shelf_life:{
+          type: Number,
+     },
+      reorder_level:{
+          type: Number,
+      },
+      reorder_quanity:{
+          type:Number,
+      },
+      cost:{
+          type:Number,
+      }
+    
+    });
+    
 
     const dummyData = [
         {
@@ -11015,7 +11046,7 @@ mongoose
       ];
 
     // Insert dummy data into the database
-    modelMaster.insertMany(dummyData)
+    masterModel.insertMany(dummyData)
       .then(() => {
         console.log('Dummy data inserted successfully');
         mongoose.connection.close();

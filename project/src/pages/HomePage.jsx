@@ -4,15 +4,16 @@ import Navbar from "../components/Navbar";
 import Video from "../components/Video";
 import WorkGrid from "../components/WorkGrid";
 import LinkSection from "../components/LinksSection";
-
+import VantaComponent from "../components/VantaComponent";
 
 function HomePage({ setLoginUser }) {
   return (
     <div className="App flex flex-col overflow-hidden">
-    <div className ='fixed top-0 z-10'><Navbar setLoginUser={setLoginUser}/></div>
-    <div className=""><Video/></div>
-    <div className="mt-[10vh] w-screen h-screen"><WorkGrid/></div>
-    <div><LinkSection/></div>
+      <div className ='fixed top-0 z-10'><Navbar setLoginUser={setLoginUser}/></div>
+      <div className=""><Video/></div>
+      <div className="w-screen h-[70vh] "><VantaComponent/></div>
+      <div className="mt-[30vh] w-screen h-screen"><WorkGrid/></div>
+      <div><LinkSection/></div>
     <div className='align-bottom fixed bottom-0'><Footer/></div>
     
 

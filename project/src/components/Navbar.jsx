@@ -7,12 +7,11 @@ import {toast,ToastContainer} from 'react-toastify';
 
 function Navbar() {
   const [hide, setHide] = useState("hidden");
-  const healthcare = ["Hospitals", "Pharmacies", "Warehouse"];
+  const supplies = ["Agencies", "Retailers", "Warehouses"];
   const tenders = ["Current Tenders", "Generate Tenders", "Upcoming Tenders"];
   const transport = ["Buses", "Road", "City Vans"];
-  const water = ["Leakages", "Supply", "Requests"];
   
-  const [category, setCategory] = useState(healthcare);
+  const [category, setCategory] = useState(supplies);
 
   const [link,setLink]=useState("/");
 
@@ -39,12 +38,12 @@ function Navbar() {
             <div
               onMouseEnter={() => {
                 setHide("flex");
-                setCategory(healthcare);
-                setLink('/healthcare');
+                setCategory(supplies);
+                setLink('/supplies');
               }}
               className="flex flex-row items-baseline gap-2 group"
             >
-              <NavLink to="/">Healthcare</NavLink>
+              <NavLink to="/">Supplies</NavLink>
               <div className="rotate-[0]  group-hover:rotate-[180deg] duration-500">
                 <MdKeyboardArrowDown size={20} />
               </div>
@@ -78,15 +77,11 @@ function Navbar() {
             <div
               onMouseEnter={() => {
                 setHide("flex");
-                setCategory(water);
                 setLink('/water');
               }}
               className="flex flex-row items-baseline gap-2 group"
             >
-              <NavLink to="/">Water</NavLink>
-              <div className="rotate-[0] group-hover:rotate-[180deg] duration-500">
-                <MdKeyboardArrowDown size={20} />
-              </div>
+              
             </div>
             <div onClick={handleLogout}
  className="w-[5.5vw] h-[5vh] bg-white text-center flex items-center justify-center rounded-md text-black hover:bg-black hover:text-white duration-500 cursor-pointer">
