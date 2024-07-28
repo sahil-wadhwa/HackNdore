@@ -2,7 +2,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import ChartsOverviewDemo from "./Charts";
 import Data from "./DataGrid";
 import InfiniteCarousel from "./Carousel";
-
+import Qr from "../components/Qr"
 function WorkGrid(){
     const titles=["Rain Water Harvesting Report","Economic Report 2023","Maintainence of Roads"]
     const sites=["https://cafeavecdespensees.blogspot.com/2024/07/of-desks-in-municipal-india-detailed.html ","https://cafeavecdespensees.blogspot.com/2024/07/of-desks-in-municipal-india-detailed.html ","https://cafeavecdespensees.blogspot.com/2024/07/of-desks-in-municipal-india-detailed.html "];
@@ -33,10 +33,9 @@ function WorkGrid(){
                 </div>
             </div>
             <div className="flex flex-col gap-[1vw]">
-            <div className="w-[28vw] h-[60vh] bg-gray-400 rounded-lg">Notice Board</div>
-            <div className="w-[28vw] h-[18vh] rounded-lg p-5">
-                
-            </div>
+                <div className="w-[28vw] h-[60vh] rounded-lg " >
+<div className="w-full h-full flex items-center justify-center"><Qr/></div>
+                </div>
             </div>
            
         </div>
