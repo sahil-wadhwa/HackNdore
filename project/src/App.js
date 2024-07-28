@@ -48,7 +48,7 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/supplies/agencies" element={<HospitalSection />} />
       <Route path="/supplies/retailers" element={<PharmacySection />} />
-      <Route path="/supplies  /warehouses" element={<WarehouseSection />} />
+      <Route path="/supplies/warehouses" element={<WarehouseSection />} />
       <Route path="/tenders/current tenders" element={<CurrentTSection />} />
       <Route path="/tenders/generate tenders" element={<GenerateTSection />} />
       <Route path="/tenders/upcoming tenders" element={<UpcomingTSection />} />

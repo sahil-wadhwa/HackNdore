@@ -1,11 +1,11 @@
-const mongoose=require('mongoose');
+import mongoose from 'mongoose';
 
 const masterModel= mongoose.Schema({
     supply_name:{
         type:String,
-    
+        
     },
-    department:{
+    department:{ 
         type:String,
     
     },
@@ -31,4 +31,4 @@ const masterModel= mongoose.Schema({
 
 });
 
-module.exports=mongoose.model("masterModel",masterModel);
+ export default mongoose.model("masterModel",masterModel);

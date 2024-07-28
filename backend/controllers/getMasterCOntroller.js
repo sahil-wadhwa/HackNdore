@@ -1,11 +1,12 @@
 const masterModel=require('../models/masterModel')
 
-const postMaster=async(req,res)=>{
+
+const getMaster=async(req,res)=>{
     try{
 
         const {id,supply_name,department,batch_no,quantity,shelf_life,reorder_level,reorder_quantity,cost}= req.body;
 
-        const response=await masterModel.create({id,supply_name,department,batch_no,quantity,shelf_life,reorder_level,reorder_quantity,cost});
+        const response=await masterModel.find({});
 
         res.status(200).json({
             success:true,
@@ -20,4 +21,5 @@ const postMaster=async(req,res)=>{
         })
     }
 }
-export default postMaster;
+
+export default getMaster;

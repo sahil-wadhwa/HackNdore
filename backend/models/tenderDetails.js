@@ -1,6 +1,5 @@
 const mongoose=require('mongoose');
 
-
 const tenderDetailsModel= mongoose.Schema({
     item:{
         type:String,

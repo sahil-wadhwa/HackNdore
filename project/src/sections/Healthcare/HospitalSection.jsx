@@ -1,5 +1,23 @@
 import { HashLink as Link } from 'react-router-hash-link';
 import './HospitalSection.css'
+import DataSupplies from '../../components/DataSupplies';
+
+
+const fetchSupplies = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/supplies',{ mode: 'no-cors' });
+      if (!response.ok) {
+        throw new Error(`Error fetching supplies: ${response.message}`);
+      }
+      const data = await response.json();
+      console.log('Supplies:', data);
+    } catch (error) {
+      console.error('Error fetching supplies:', error);
+    }
+  };
+  
+  // Call the function to fetch supplies
+  fetchSupplies();
 
 function HospitalSection(){
     return (
@@ -12,28 +30,14 @@ function HospitalSection(){
             </div>
             <div id="analytics" className="flex flex-row w-screen h-screen bg-white p-10 gap-5 overflow-hidden">
                 <div className='h-full w-1/3 bg-black'></div>
-                <div className='h-full w-2/3 bg-black flex flex-col border-2'>
-                    <div className='h-[10%] w-full bg-white flex-row flex justify-evenly text-lg items-center'>
-                        <div className='h-full w-full border-2 text-center'>Field 1</div>
-                        <div className='h-full w-full border-2 text-center'>Field 2</div>
-                        <div className='h-full w-full border-2 text-center'>Field 3</div>
-                        <div className='h-full w-full border-2 text-center'>Field 4</div>
-                        <div className='h-full w-full border-2 text-center'>Field 5</div>
-
-                    </div>
+                <div className='h-full w-2/3  flex flex-col border-2'>
+                    
                 </div>
 
             </div>
-            <div id="inventory" className="flex flex-row w-screen h-screen bg-gray-600 p-6 overflow-hidden">
-            <div className='h-full w-full bg-black flex flex-col border-2'>
-                    <div className='h-[10%] w-full bg-white flex-row flex justify-evenly text-lg items-center'>
-                        <div className='h-full w-full border-2 text-center'>Field 1</div>
-                        <div className='h-full w-full border-2 text-center'>Field 2</div>
-                        <div className='h-full w-full border-2 text-center'>Field 3</div>
-                        <div className='h-full w-full border-2 text-center'>Field 4</div>
-                        <div className='h-full w-full border-2 text-center'>Field 5</div>
-
-                    </div>
+            <div id="inventory" className="flex flex-row w-screen h-screen  p-6 overflow-hidden">
+            <div className='h-full w-full flex flex-col border-2'>
+            <DataSupplies/>
                 </div>
             </div>
             <div id="danger" className="flex flex-row w-screen h-screen bg-slate-400 overflow-hidden"></div>
